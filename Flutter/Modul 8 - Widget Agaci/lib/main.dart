@@ -373,7 +373,7 @@ class _OgrenciEklemeState extends State<OgrenciEkleme> {
               final yeniOgrenci =controller.text;
               sinifBilgisi.yeniOgrenciEkle(yeniOgrenci);
               controller.text='';
-
+ 
             },
             child: Text('Ekle')),
       ],
