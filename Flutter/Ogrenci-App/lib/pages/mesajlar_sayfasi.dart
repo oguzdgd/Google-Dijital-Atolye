@@ -1,8 +1,8 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ogrenci_app/repository/mesajlar_repository.dart';
+import 'package:ogrenci_app/models/mesaj.dart';
 
 class MesajlarSayfasi extends ConsumerStatefulWidget {
   const MesajlarSayfasi( {super.key});
@@ -47,7 +47,7 @@ class _MesajlarSayfasiState extends ConsumerState<MesajlarSayfasi> {
               children: [
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         border: Border.all(),

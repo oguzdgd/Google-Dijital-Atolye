@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../models/mesaj.dart';
+
 class MesajlarRepository extends ChangeNotifier{
 
   final List<Mesaj> mesajlar =[
@@ -25,10 +27,3 @@ class YeniMesajSayisi extends StateNotifier<int>{
 final yeniMesajSayisiProvider = StateNotifierProvider<YeniMesajSayisi,int>((ref) => YeniMesajSayisi(4));
 
 
-class Mesaj{
-  String yazi;
-  String gonderen;
-  DateTime zaman;
-
-  Mesaj(this.yazi, this.gonderen, this.zaman);
-}

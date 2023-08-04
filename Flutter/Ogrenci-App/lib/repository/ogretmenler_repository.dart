@@ -1,5 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ogrenci_app/services/data_service.dart';
+
+import '../models/ogretmen.dart';
 
 class OgretmenlerRepository extends ChangeNotifier{
 
@@ -10,14 +15,16 @@ class OgretmenlerRepository extends ChangeNotifier{
 
   ];
 
-}
-final ogretmenlerProvider = ChangeNotifierProvider((ref) => OgretmenlerRepository());
+  final DataService dataService;
+  OgretmenlerRepository(this.dataService);
+  Future<void> indir() async {
+    Ogretmen ogretmen =  await dataService.ogretmenIndir();
 
-class Ogretmen{
-  String ad;
-  String soyad;
-  int yas;
-  String cinsiyet;
+    ogretmenler.add(ogretmen);
+    notifyListeners();
+  }
 
-  Ogretmen(this.ad, this.soyad, this.yas, this.cinsiyet);
+
 }
+final ogretmenlerProvider = ChangeNotifierProvider((ref) => OgretmenlerRepository(ref.watch(dataServiceProvider)));
+
